@@ -39,7 +39,7 @@ let shuffleOrder = () => {
 let checkOrder = () => {
   for (let i in clickedOrder) {
     if (clickedOrder[i] != order[i]) {
-      lose();
+      gameOver();
       break;
     }
   }
@@ -60,4 +60,41 @@ let click = (color) => {
   });
 
   checkOrder();
+};
+
+//função que retorna a cor
+let createdColorElement = () => {
+  if (color == 0) {
+    return green;
+  } else if (color == 1) {
+    return red;
+  } else if (color == 2) {
+    return yellow;
+  } else if (color == 3) {
+    return blue;
+  }
+};
+
+//função para o proximo nível
+let nextLevel = () => {
+  score++;
+  shuffleOrder();
+};
+
+//função para game over
+let gameOver = () => {
+  alert(
+    `Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em Ok para iniciar um novo jogo`
+  );
+  order = [];
+  clickedOrder = [];
+
+  playGame();
+};
+
+let playGame = () => {
+  alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
+  score = 0;
+
+  nextLevel();
 };

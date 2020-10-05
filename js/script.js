@@ -32,7 +32,7 @@ let lightColor = (element, number) => {
   }, number - 250);
   setTimeout(() => {
     element.classList.remove('selected');
-  });
+  }, number);
 };
 
 //checa se os botões clicados são os mesmos da ordem gerada aleatoriamente
